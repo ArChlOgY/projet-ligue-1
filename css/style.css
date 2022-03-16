@@ -1,0 +1,225 @@
+/* Cleanin' Bootstrap */
+
+*, ::before, ::after {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: black;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 85%, rgba(0,0,0,1) 100%),
+    url(https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    min-height: 100vh;
+    color : white;
+    font-size: large;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+hr {
+    margin: 0.3rem 0;
+}
+
+.welcome {
+    color: #3AAF9F;
+}
+
+.error-login {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #fbfbfb;
+    background-color: #ff1a1a87;
+    border-radius: 5px;
+}
+
+.heading {
+    color : #3AAF9F;
+    font-size: x-large;
+}
+
+.headCut {
+    margin: auto;
+    color: #3AAF9F;
+    width: 90%;
+    height: 4px !important;
+}
+
+.loginForm {
+    width: 40%;
+}
+
+.btn-success {
+    background-color: #3AAF9F;
+}
+
+.header-date {
+    font-size: small;
+    font-style: italic;
+    padding-left: 15px;
+}
+
+.accordion-button, .accordion-button:not(.collapsed) {
+    background-color: #3AAF9F;
+    color: white;
+    font-size: large;
+    box-shadow: 0 0 0 1px #3AAF9F;
+}
+
+.accordion-item:last-of-type, .accordion-button.collapsed, .accordion-collapse {
+    border-radius: unset !important;
+}
+
+.accordion-button:focus {
+    border-color: unset;
+    box-shadow: 0 0 0 1px #3AAF9F;
+}
+
+.accordion-body {
+    background-color: #000000;
+
+}
+
+.accordion-button::after {
+    filter: brightness(100);
+}
+
+ul {
+    font-size: small;
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.2em;
+}
+ul li:before {
+	content: "\02C3\02C3\02C3";
+    color: #4285F4;
+	position: absolute;
+	left: 0;
+}
+
+.rank-legende-1:before {
+    background-color: #4285F4;
+}
+
+.rank-legende-2:before {
+    color: #FA7B17;
+    background-color: #FA7B17;
+}
+
+.rank-legende-3:before {
+    color: #34A853;
+    background-color: #34A853;
+}
+
+.rank-legende-4:before {
+    color: #24C1E0;
+    background-color: #24C1E0;
+}
+
+.rank-legende-5:before {
+    color: #FBBC04;
+    background-color: #FBBC04;
+}
+
+.rank-legende-6:before {
+    color: #EA4335;
+    background-color: #EA4335;
+}
+
+
+.bullet-text {
+    font-size: small;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+.class-head {
+    background-color: #000000cf;
+    /* border: #3AAF9F 1px solid; */
+    min-width: 600px;
+    max-width: 800px;
+    font-size: larger;
+}
+
+.class-top {
+    font-size: 16px;
+    color: #3AAF9F;
+    padding-top: 10px;
+}
+
+.classement {
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.classement:hover {
+    background-color: #3AAF9F;
+    transition: 0.5s ease-in-out;
+
+}
+
+.rank-highlight-1, .rank-highlight-2 {
+    border-left: 2px solid #4285F4;
+}
+
+.rank-highlight-3 {
+    border-left: 2px solid #FA7B17;
+}
+
+.rank-highlight-4 {
+    border-left: 2px solid #34A853;
+}
+
+.rank-highlight-5 {
+    border-left: 2px solid #24C1E0;
+}
+
+.rank-highlight-18 {
+    border-left: 2px solid #FBBC04;
+}
+
+.rank-highlight-19, .rank-highlight-20 {
+    border-left: 2px solid #EA4335;
+}
+
+.club-logo {
+    height: 40px;
+}
+
+.footer {
+    padding: 25px;
+}
+
+footer i[class*="fa-"] {
+    font-size: 50px;
+}
+
+.fa-html5:after, .fa-css3-alt:after, .fa-php:after {
+    content: "\00B7";
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .rank-club, .rank-win, .rank-equal, .rank-lost {
+        display: none;
+    }
+    .rank-logo, .rank-matchPlay, .goal-for, .goal-against, .rank-diff  {
+        margin: auto;
+    }
+    .bullet-text {
+        font-size: xx-small;
+    }
+    footer i[class*="fa-"] {
+        font-size: 30px;
+    }
+}
