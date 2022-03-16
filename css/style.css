@@ -29,6 +29,21 @@ hr {
     margin: 0.3rem 0;
 }
 
+ul {
+    font-size: small;
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1.2em;
+}
+
+ul li:before {
+    content: "\02C3\02C3\02C3";
+    color: #4285F4;
+    position: absolute;
+    left: 0;
+}
+
 .welcome {
     color: #3AAF9F;
 }
@@ -92,20 +107,6 @@ hr {
     filter: brightness(100);
 }
 
-ul {
-    font-size: small;
-	position: relative;
-	list-style: none;
-	margin-left: 0;
-	padding-left: 1.2em;
-}
-ul li:before {
-	content: "\02C3\02C3\02C3";
-    color: #4285F4;
-	position: absolute;
-	left: 0;
-}
-
 .rank-legende-1:before {
     background-color: #4285F4;
 }
@@ -134,7 +135,6 @@ ul li:before {
     color: #EA4335;
     background-color: #EA4335;
 }
-
 
 .bullet-text {
     font-size: small;
