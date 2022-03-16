@@ -10,3 +10,4 @@ if (!empty($email) && !empty($pass)) {
 }else{
         header("Location:../index.php?return=error");
     }
+?>
