@@ -167,6 +167,10 @@ ul li:before {
 
 }
 
+.rank-position {
+    width: 30px;
+}
+
 .rank-highlight-1, .rank-highlight-2 {
     border-left: 2px solid #4285F4;
 }

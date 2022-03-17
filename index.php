@@ -339,7 +339,7 @@
                     ?>
                             <hr>
                             <div class="row classement <?php echo $club["nom"] ?>">
-                                <div class="col-auto rank-position rank-highlight-<?php echo $i ?>"><?php echo $i ?></div>
+                                <div class="col-1 rank-position rank-highlight-<?php echo $i ?>"><?php echo $i ?></div>
                                 <div class="col-1 rank-logo"><img src="assets/img/<?php echo $club["nom"] ?>.png" class="club-logo"></div>
                                 <div class="col-2 rank-club"><?php echo strtoupper($club["nom"]) ?></div>
                                 <div class="col-1 rank-matchPlay"><?php echo $club["stats"]["mj"] ?></div>
