@@ -22,26 +22,26 @@ Base de donnée : Non
 ## DEMO
 https://foreach.alwaysdata.net/projet-ligue-1/
 
-## LOGIN
+## LOGIN (screenshot)
 
 ![Login](/assets/screen/01.login.jpg)
 
-## LOGIN ERROR
+## LOGIN ERROR (screenshot)
 
 ![Login Error](/assets/screen/02.error.jpg)
 
-## LOGIN SUCCESS
+## LOGIN SUCCESS (screenshot)
 
 ![Login Error](/assets/screen/03.success.jpg)
 
-## LEGENDE
+## LEGENDE (screenshot)
 
 ![Login Error](/assets/screen/04.legende.jpg)
 
-## DESKTOP
+## DESKTOP (screenshot)
 
 ![Login Error](/assets/screen/05.desktop.jpg)
 
-## MOBILE
+## MOBILE (screenshot)
 
 ![Login Error](/assets/screen/06.mobile.jpg)
