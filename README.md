@@ -32,16 +32,16 @@ https://foreach.alwaysdata.net/projet-ligue-1/
 
 ## LOGIN SUCCESS (screenshot)
 
-![Login Error](/assets/screen/03.success.jpg)
+![Login Success](/assets/screen/03.success.jpg)
 
 ## LEGENDE (screenshot)
 
-![Login Error](/assets/screen/04.legende.jpg)
+![Legende](/assets/screen/04.legende.jpg)
 
 ## DESKTOP (screenshot)
 
-![Login Error](/assets/screen/05.desktop.jpg)
+![Desktop](/assets/screen/05.desktop.jpg)
 
 ## MOBILE (screenshot)
 
-![Login Error](/assets/screen/06.mobile.jpg)
+![Mobile](/assets/screen/06.mobile.jpg)
