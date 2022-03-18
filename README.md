@@ -15,6 +15,9 @@ Base de donnée : Non
 - [x] Indiquer par un code couleur le statut Qualification/Relégation
 - [x] Ajouter la légende couleur dans un menu accordeon
 - [x] Publier sur Github
+- [ ] Utiliser une variable de session pour le login
+- [ ] Récupérer les données automatiquement
+- [ ] Stocker les données dans une base de donnée
 
 ## DEMO
 https://foreach.alwaysdata.net/projet-ligue-1/
