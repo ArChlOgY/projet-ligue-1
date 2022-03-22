@@ -16,6 +16,7 @@ Base de donnée : Non
 - [x] Ajouter la légende couleur dans un menu accordeon
 - [x] Publier sur Github
 - [ ] Utiliser une variable de session pour le login
+- [ ] Ajouter un header avec les onglets (accueil - ajouter un club - ajouter le résultat d'un match)
 - [ ] Récupérer les données automatiquement
 - [ ] Stocker les données dans une base de donnée
 
