@@ -15,13 +15,13 @@ function getClubResults($pdo) {
 
     #Create SQL request to db to get overall ranking
     $requete = "
-    SELECT c.id_club, nom_club, logo, SUM(mj) total_mj, SUM(mg) mg , SUM(mn) mn, SUM(mp) mp, SUM(bp) bp, SUM(bc) bc, SUM(dp) db, SUM(mg*3) + SUM(mn*1) total_pts 
-    FROM `club` c LEFT JOIN stats s ON c.id_club = s.id_club GROUP BY c.id_club 
-    ORDER BY total_pts DESC, db DESC;
-    ";
 
-    # Request to be updated to below as we will compile the sum-up from db_stas
-    # SELECT COUNT(id_stats) mj, SUM(mg) mg, SUM(mn) mn, SUM(mp) mp, SUM(bp) bp, SUM(bc) bc, SUM(dp) dp, SUM(point) point  FROM club C JOIN stats S ON C.id_club = S.id_club;
+    SELECT c.id_club, nom_club, logo, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg , SUM(IFNULL(mn, 0)) mn, SUM(IFNULL(mp, 0)) mp, SUM(IFNULL(bp, 0)) bp, SUM(IFNULL(bc, 0)) bc, SUM(IFNULL(dp, 0)) db, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts 
+    FROM `club` c LEFT JOIN stats s ON c.id_club = s.id_club GROUP BY c.id_club 
+    ORDER BY total_pts DESC, mj DESC, db DESC;
+    " 
+    ;
+
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
     $clubres = $stmt->fetchAll();
