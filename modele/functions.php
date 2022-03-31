@@ -14,13 +14,10 @@ function getClub($pdo) {
 function getClubResults($pdo) {
 
     #Create SQL request to db to get overall ranking
-    $requete = "
-
-    SELECT c.id_club, nom_club, logo, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg , SUM(IFNULL(mn, 0)) mn, SUM(IFNULL(mp, 0)) mp, SUM(IFNULL(bp, 0)) bp, SUM(IFNULL(bc, 0)) bc, SUM(IFNULL(dp, 0)) db, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts 
+    $requete = "SELECT c.id_club, nom_club, logo, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg , SUM(IFNULL(mn, 0)) mn, SUM(IFNULL(mp, 0)) mp, SUM(IFNULL(bp, 0)) bp, SUM(IFNULL(bc, 0)) bc, SUM(IFNULL(dp, 0)) db, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts 
     FROM `club` c LEFT JOIN stats s ON c.id_club = s.id_club GROUP BY c.id_club 
     ORDER BY total_pts DESC, mj DESC, db DESC;
-    " 
-    ;
+    " ;
 
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
