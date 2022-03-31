@@ -44,6 +44,23 @@ ul li:before {
     left: 0;
 }
 
+.class-head { 
+    background-color: #000000cf;
+    color: white;
+    /* min-width: 600px; */
+    max-width: 800px;
+    font-size: larger;
+}
+
+.menu-btn {
+    font-size: larger;
+}
+
+.menu a, .class-head a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .welcome {
     color: #3AAF9F;
 }
@@ -68,12 +85,20 @@ ul li:before {
     height: 4px !important;
 }
 
-.loginForm {
+.loginForm, .menu-navbar {
     width: 40%;
 }
 
 .btn-success {
     background-color: #3AAF9F;
+}
+
+.menu-btn, .submit-btn {
+    font-size: inherit;
+    background-color: #3AAF9F;
+    border-radius: 0.25rem;
+    padding: 10px;
+    border: 1px solid #000000;
 }
 
 .header-date {
@@ -142,14 +167,6 @@ ul li:before {
     margin-left: 20px;
 }
 
-.class-head {
-    background-color: #000000cf;
-    /* border: #3AAF9F 1px solid; */
-    min-width: 600px;
-    max-width: 800px;
-    font-size: larger;
-}
-
 .class-top {
     font-size: 16px;
     color: #3AAF9F;
@@ -199,6 +216,10 @@ ul li:before {
     height: 40px;
 }
 
+.rank-club{
+    text-transform: uppercase;
+}
+
 .footer {
     padding: 25px;
 }
@@ -226,4 +247,123 @@ footer i[class*="fa-"] {
     footer i[class*="fa-"] {
         font-size: 30px;
     }
+    .addclub .form-control, .label-logo, .submit-btn {
+        margin-bottom: 15px;
+        width: inherit;
+    }
+}
+
+.submit-btn {
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #3AAF9F;
+    border-radius: 0.25rem;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+
+
+
+/* details page */
+
+.highlight-results-text {
+    font-size: medium;
+}
+
+.carousel-inner {
+    border: 1px solid #3AAF9F;
+}
+
+
+.details-point {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.details-point-text {
+    color: #3AAF9F;
+    font-weight: bold;
+    margin-top: -20px;
+    padding-left: 25%;
+}
+
+/* ajout match page */
+
+
+.input-club input, .input-ville input {
+    background-color: inherit;
+    color: white;
+    border-top: 10px solid #ffffff;
+    border-right: 10px solid #ffffff;
+    border-left: 10px solid #ffffff;
+    border-bottom: none;
+    height: 100px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input:required {
+    background: unset;
+    color: #3AAF9F;
+  }
+  
+.addmatch input:required:invalid {
+    background: url("../assets/img/goal_background.png") repeat 0 0;
+  }
+
+#club-home-goal:focus, #club-out-goal:focus {
+    background: unset;
+    outline: 0 none;
+    color: #3AAF9F;
+  }
+
+.spinner-ball {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    vertical-align: -.125em;
+    border: unset;
+}
+
+.spinner-ball:hover {
+    cursor: pointer;
+    -webkit-animation: 1s linear infinite spinner-border;
+    animation: 1s linear infinite spinner-border;
+}
+
+.addmatch-btn {
+    background-color: unset;
+    border: unset;
+}
+
+/* ajout club page */
+
+
+.addclub input {
+    background-color: inherit;
+    color: white;
+    line-height: 2rem;
+    text-transform: uppercase;
+}
+
+.addclub input::placeholder {
+    color: white;
+}
+
+
+.addclub input:focus {
+    background-color: inherit;
+    color: white;
+    border-color: #3AAF9F;
+}
+
+.label-logo {
+    background-color: unset;
+    border: 1px solid;
+    font-weight: unset;
+}
+
+#form-logo {
+    display: none;
 }

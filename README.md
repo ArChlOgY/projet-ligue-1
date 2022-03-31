@@ -3,7 +3,7 @@ Créer un tableau du classement de la ligue 1
 
 Language : PHP - HTML - CSS
 
-Base de donnée : Non
+Base de donnée : Oui
 
 - [x] Créer une interface responsive HTML/CSS (Bootstrap)
 - [x] L'utilisateur doit saisir ses identifiants pour consulter le classement
@@ -15,10 +15,30 @@ Base de donnée : Non
 - [x] Indiquer par un code couleur le statut Qualification/Relégation
 - [x] Ajouter la légende couleur dans un menu accordeon
 - [x] Publier sur Github
-- [ ] Utiliser une variable de session pour le login
-- [ ] Ajouter un header avec les onglets (accueil - ajouter un club - ajouter le résultat d'un match)
+- [x] Utiliser un compte utilisateur (email/password) avec le bon niveau de sécurité
+- [x] Utiliser une variable de session pour le login
+- [x] Ajout bouton login/logout
+- [x] Ajouter un menu avec les onglets (accueil - ajouter un club - ajouter le résultat d'un match)
+- [x] Stocker les données dans une base de donnée
+- [x] Possibilité d'ajouter un club avec des requêtes préparées (PDO)
+- [x] Possibilité de charger un logo (image) avec un controle de fichier/taille
+- [x] Possibilité d'ajouter un matchs avec des requêtes préparées (PDO)
+- [x] Stocker les données dans une base de donnée
+- [x] Afficher le classement sur la page d'acceuil avec les résultats enregistrés par l'utilisateur
+
+
+TO-DO
+
+- [ ] Affichier une erreur si aucun logo n'est chargé
+- [ ] Ajouter la liste des matchs sur la page "Ajouter un match"
+- [ ] Terminé la page détail du club (clic sur le club depuis le classement)
+- [ ] Afficher le détail des matchs dans ajout match
+- [ ] Vérifier les contraintes de clé étrangère
+- [ ] Vérifier que le site soit complétement responsive
+- [ ] Ajuster les couleurs
+- [ ] Simplifier l'experience utilisateurs (guide utilisateur ^^)
 - [ ] Récupérer les données automatiquement
-- [ ] Stocker les données dans une base de donnée
+
 
 ## DEMO
 https://foreach.alwaysdata.net/projet-ligue-1/
@@ -46,3 +66,11 @@ https://foreach.alwaysdata.net/projet-ligue-1/
 ## MOBILE (screenshot)
 
 ![Mobile](/assets/screen/06.mobile.jpg)
+
+## AJOUT MATCH (screenshot)
+
+![Ajout Match](/assets/screen/07.ajoutermatch.jpg)
+
+## AJOUT CLUB (screenshot)
+
+![Ajout Club](/assets/screen/08.ajouterclub.jpg)
