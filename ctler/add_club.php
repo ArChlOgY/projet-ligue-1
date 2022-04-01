@@ -33,7 +33,7 @@ $clubs = getClub($pdo);
                                             <input required type="text" class="form-control" id="form-city" name="form-city" placeholder="Ville">
                                         </div>
                                         <div class="col-md-2">
-                                            <button type="submit" name="submit" class="btn mb-2 submit-btn">CONFIRMER</button>
+                                            <button type="submit" name="submit" class="btn mb-2 submit-btn">ENVOYER</button>
                                         </div>
                                     </div>
                                 </form>
