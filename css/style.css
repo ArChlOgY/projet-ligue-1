@@ -47,8 +47,7 @@ ul li:before {
 .class-head { 
     background-color: #000000cf;
     color: white;
-    /* min-width: 600px; */
-    max-width: 800px;
+    max-width: 850px;
     font-size: larger;
 }
 
@@ -123,9 +122,12 @@ ul li:before {
     box-shadow: 0 0 0 1px #3AAF9F;
 }
 
+.accordion-item {
+    background-color: unset;
+}
+
 .accordion-body {
     background-color: #000000;
-
 }
 
 .accordion-button::after {
@@ -234,11 +236,11 @@ footer i[class*="fa-"] {
     padding-right: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 780px) {
     .rank-club, .rank-win, .rank-equal, .rank-lost {
         display: none;
     }
-    .rank-logo, .rank-matchPlay, .goal-for, .goal-against, .rank-diff  {
+    .rank-logo, .rank-matchPlay, .goal-for, .goal-against, .rank-diff, .rank-points  {
         margin: auto;
     }
     .bullet-text {
@@ -250,6 +252,24 @@ footer i[class*="fa-"] {
     .addclub .form-control, .label-logo, .submit-btn {
         margin-bottom: 15px;
         width: inherit;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .goal-for, .goal-against  {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .rank-diff  {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    .rank-matchPlay  {
+        display: none;
     }
 }
 

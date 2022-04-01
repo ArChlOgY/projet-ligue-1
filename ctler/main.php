@@ -53,7 +53,7 @@ $clubres = getClubResults($pdo);
                 <div class="col-1 goal-for">BP</div>
                 <div class="col-1 goal-against">BC</div>
                 <div class="col-1 rank-diff">DB</div>
-                <div class="col-1">Pts</div>
+                <div class="col-1 rank-points">Pts</div>
             </div>
             <?php
                 $rank = 0;
