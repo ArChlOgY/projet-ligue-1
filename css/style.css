@@ -72,6 +72,10 @@ ul li:before {
     border-radius: 5px;
 }
 
+.error-message {
+    max-width: 30%;
+}
+
 .heading {
     color : #3AAF9F;
     font-size: x-large;

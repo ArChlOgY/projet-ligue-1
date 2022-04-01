@@ -120,11 +120,13 @@ if(isset($_GET["action"])) {
                         <a href="./index.php?action=logout"><span class="menu-btn">A+</span></a>
                     </div>
                 </div>
+            </div>
                 <?php
 
                 #$addClub = false;
                 
                 if(isset($addClub) || isset($addmatch) ) { ?>
+            <div class="container error-message pt-3">
                 <div class="row">
                     <div class="col-12">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
