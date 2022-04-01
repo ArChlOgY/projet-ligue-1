@@ -9,7 +9,6 @@ TO-DO
 
 - [ ] Ajouter la liste des matchs sur la page "Ajouter un match"
 - [ ] Terminé la page détail du club (clic sur le club depuis le classement)
-- [ ] Afficher le détail des matchs dans ajout match
 - [ ] Vérifier les contraintes de clé étrangère
 - [ ] Vérifier que le site soit complétement responsive
 - [ ] Ajuster les couleurs

@@ -38,7 +38,7 @@ $clubs = getClub($pdo);
                                                 <?php } ?>
                                                 </select>
                                                 <div class="input-club mt-3">
-                                                    <input required type="text" id="club-home-goal" name="club-home-goal">
+                                                    <input required type="number" id="club-home-goal" name="club-home-goal">
                                                 </div>
                                             </div>
                                             <div class="col-sd-12 col-md-2 mt-5">
@@ -58,7 +58,7 @@ $clubs = getClub($pdo);
                                                 <?php } ?>
                                                 </select>
                                                 <div class="input-ville mt-3">
-                                                    <input required type="text" id="club-out-goal" name="club-out-goal">
+                                                    <input required type="number" id="club-out-goal" name="club-out-goal">
                                                 </div>
                                             </div>
                                         </div>

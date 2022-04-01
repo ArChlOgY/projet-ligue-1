@@ -90,11 +90,20 @@ function actionDelclub($pdo, $clubid) {
 
 function addmatch($pdo, $clubid_home, $goal_home, $clubid_out, $goal_out) {
 
+    # Check values are passed correctly
+    if(empty($clubid_home) || empty($goal_home) || empty($clubid_out) || empty($goal_out) ){
+        throw new Exception("Les informations saisies sont incomplètes");
+    }
+
+    # Ensure the goals is 0 or any positive number
+    if($goal_home < 0 || $goal_out < 0){
+        throw new Exception("Le nombre de but ne peut pas être inférieur à zéro");
+    }
+
     # Same club , same match !? Nop
     if($clubid_home == $clubid_out){
         throw new Exception("Un club ne peut pas se recontrer lui même...");
     }
-
 
     # Is the match already played ?
     $requete = "SELECT id_match FROM matchs WHERE idclub_home = :idclub_home AND idclub_out = :idclub_out";
