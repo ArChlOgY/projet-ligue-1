@@ -5,6 +5,19 @@ Language : PHP - HTML - CSS
 
 Base de donnée : Oui
 
+TO-DO
+
+- [ ] Ajouter la liste des matchs sur la page "Ajouter un match"
+- [ ] Terminé la page détail du club (clic sur le club depuis le classement)
+- [ ] Afficher le détail des matchs dans ajout match
+- [ ] Vérifier les contraintes de clé étrangère
+- [ ] Vérifier que le site soit complétement responsive
+- [ ] Ajuster les couleurs
+- [ ] Simplifier l'experience utilisateurs (guide utilisateur ^^)
+- [ ] Récupérer les données automatiquement
+
+COMPLETED
+
 - [x] Créer une interface responsive HTML/CSS (Bootstrap)
 - [x] L'utilisateur doit saisir ses identifiants pour consulter le classement
 - [x] Faire une vérification des identifiants en PHP (méthode POST)
@@ -25,20 +38,7 @@ Base de donnée : Oui
 - [x] Possibilité d'ajouter un matchs avec des requêtes préparées (PDO)
 - [x] Stocker les données dans une base de donnée
 - [x] Afficher le classement sur la page d'acceuil avec les résultats enregistrés par l'utilisateur
-
-
-TO-DO
-
-- [ ] Affichier une erreur si aucun logo n'est chargé
-- [ ] Ajouter la liste des matchs sur la page "Ajouter un match"
-- [ ] Terminé la page détail du club (clic sur le club depuis le classement)
-- [ ] Afficher le détail des matchs dans ajout match
-- [ ] Vérifier les contraintes de clé étrangère
-- [ ] Vérifier que le site soit complétement responsive
-- [ ] Ajuster les couleurs
-- [ ] Simplifier l'experience utilisateurs (guide utilisateur ^^)
-- [ ] Récupérer les données automatiquement
-
+- [x] Affichier une erreur si aucun logo n'est chargé
 
 ## DEMO
 https://foreach.alwaysdata.net/projet-ligue-1/

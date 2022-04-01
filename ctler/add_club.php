@@ -22,7 +22,7 @@ $clubs = getClub($pdo);
                                     <div class="row ps-4">
                                         <div class="col-md-1 me-3 ">
                                             <label class="label-logo submit-btn" for="form-logo">LOGO</label>
-                                            <input required type="file" class="form-control" id="form-logo" name="file">
+                                            <input type="file" class="form-control" id="form-logo" name="file">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="sr-only" for="form-clubname">Nom Club</label>

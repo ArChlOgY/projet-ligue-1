@@ -48,8 +48,11 @@ function actionAddclub($pdo, $clubname, $clubcity, $file) {
         throw new Exception('Le nom du club/ville doit comporter uniquement des lettres');
     }
 
-    // Check file size (MAX :: 1MB), note that file can be empty if the size if over php.ini MAXPOST 
-    if (empty($file["size"]) or $file["size"] > 1000000) {
+    // Check file exist -> note that file can be empty if the size is over MAXPOST php.ini 
+    if (empty($file["size"])) {
+        throw new Exception('Vous devez ajouter un logo (jpg/png/jpeg - 1Mo Max)');
+    // Then the image size        
+    } elseif ($file["size"] > 1000000) { 
         throw new Exception('Fichier trop volumineux - 1Mo Max');
     }
 
