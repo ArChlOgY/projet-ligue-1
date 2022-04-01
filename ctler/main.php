@@ -13,27 +13,48 @@ $clubres = getClubResults($pdo);
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            CLASSEMENT LIGUE 1 - FR
+                            <span class="accordion-head-shorttext">LIGUE 1 - FR</span>
+                            <span class="accordion-head-longtext">CLASSEMENT LIGUE 1 - FR</span>
                         </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionRank">
                             <div class="accordion-body">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-6">
                                             <ul>
                                                 <li class="rank-legende-1 mb-2"><span class="bullet-text">Ligue des Champions – Phase de groupes</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <ul>
                                                 <li class="rank-legende-2 mb-2"><span class="bullet-text">Ligue des Champions – Phase éliminatoire</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <ul>
                                                 <li class="rank-legende-3"><span class="bullet-text">Ligue Europa – Phase de groupes</span></li>
                                             </ul>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-6">
                                             <ul>
                                                 <li class="rank-legende-4 mb-2"><span class="bullet-text">Ligue Europa Conférence – éliminatoire</span></li>
-                                                <li class="rank-legende-5 mb-2"><span class="bullet-text">Barrages pour le maintien</span></li>
-                                                <li class="rank-legende-6"><span class="bullet-text">Relégation</span></li>
                                             </ul>
-                                        </div>                                                   
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <ul>
+                                                <li class="rank-legende-5 mb-2"><span class="bullet-text">Barrages pour le maintien</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <ul>
+                                               <li class="rank-legende-6"><span class="bullet-text">Relégation</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

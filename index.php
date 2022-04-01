@@ -38,14 +38,13 @@ if(isset($_GET["action"])) {
         }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <!-- BOOTSTRAP -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Classement Ligue</title>
+        <title>Classement Ligue 1 - Uber Eats</title>
         <!-- FONT AWESOME-->
         <script src="https://kit.fontawesome.com/6ebea31493.js" crossorigin="anonymous"></script>
         <!-- GOOGLE FONTS -->
@@ -113,12 +112,10 @@ if(isset($_GET["action"])) {
         <?php if(isset($_SESSION["email"])) { ?>
         <section>
             <div class="container menu">
-                <div class="row text-center mb-4 mt-4 menu">
-                    <div class="col-12">
-                        <a href="./index.php?show=addmatch"><span class="menu-btn">MATCH +</span></a>
-                        <a href="./index.php?show=addclub"><span class="menu-btn">CLUB +</span></a>
-                        <a href="./index.php?action=logout"><span class="menu-btn">A+</span></a>
-                    </div>
+                <div class="row justify-content-center mb-4 mt-4">
+                        <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addmatch">MATCH +</a></div>
+                        <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addclub">CLUB +</a></div>
+                        <div class="col-4 col-sm-1 menu-btn"><a href="./index.php?action=logout">A+</a></div>
                 </div>
             </div>
                 <?php

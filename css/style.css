@@ -96,12 +96,34 @@ ul li:before {
     background-color: #3AAF9F;
 }
 
-.menu-btn, .submit-btn {
+.menu-btn {
     font-size: inherit;
     background-color: #3AAF9F;
     border-radius: 0.25rem;
     padding: 10px;
     border: 1px solid #000000;
+    width: auto;
+}
+
+.submit-btn {
+    font-size: inherit;
+    background-color: #3AAF9F;
+    border-radius: 0.25rem;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+
+
+.btn-menu{
+    width: 450px;
+}
+
+.menu-btn-test {
+    background-color: #3AAF9F;
+    border-radius: 0.25rem;
+    border: 1px solid #000000;
+    padding: 10px;
+    width: auto;
 }
 
 .header-date {
@@ -126,12 +148,22 @@ ul li:before {
     box-shadow: 0 0 0 1px #3AAF9F;
 }
 
+.accordion-head-shorttext{
+    display: none;
+}
+
 .accordion-item {
     background-color: unset;
 }
 
 .accordion-body {
     background-color: #000000;
+    padding: 1rem 0;
+}
+
+.accordion-body .container {
+    padding-left: 2px;
+    margin-left: 0;
 }
 
 .accordion-button::after {
@@ -187,7 +219,6 @@ ul li:before {
 .classement:hover {
     background-color: #3AAF9F;
     transition: 0.5s ease-in-out;
-
 }
 
 .rank-position {
@@ -224,6 +255,7 @@ ul li:before {
 
 .rank-club{
     text-transform: uppercase;
+    width: 20%;
 }
 
 .footer {
@@ -247,8 +279,8 @@ footer i[class*="fa-"] {
     .rank-logo, .rank-matchPlay, .goal-for, .goal-against, .rank-diff, .rank-points  {
         margin: auto;
     }
-    .bullet-text {
-        font-size: xx-small;
+    .rank-points{
+        padding-right: 40px;
     }
     footer i[class*="fa-"] {
         font-size: 30px;
@@ -263,17 +295,62 @@ footer i[class*="fa-"] {
     .goal-for, .goal-against  {
         display: none;
     }
+    .bullet-text {
+        font-size: smaller;
+    }
 }
 
 @media only screen and (max-width: 340px) {
     .rank-diff  {
         display: none;
     }
+    .menu {
+        padding: 20px;
+    }
+    .menu-btn {
+        width: 100%;
+        margin: 0.25rem 0!important;
+        text-align: center;
+    }
+    .accordion-head-longtext {
+        display: none;
+    }
+    .accordion-head-shorttext{
+        display: block;
+        font-size: medium;
+    }
+    .bullet-text {
+        font-size: x-small;
+    }
+    .footer {
+        padding: 5px;
+    }
+    footer i[class*="fa-"] {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 285px) {
+    .bullet-text {
+        font-size: xx-small;
+    }
 }
 
 @media only screen and (max-width: 260px) {
+    .class-head, .menu {
+        min-width: 200px;
+    }
     .rank-matchPlay  {
         display: none;
+    }
+    .accordion-head-shorttext{
+        font-size: small;
+    }
+    body {
+        background: url(https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
     }
 }
 
@@ -286,8 +363,6 @@ footer i[class*="fa-"] {
     padding: 10px;
     border: 1px solid #000000;
 }
-
-
 
 /* details page */
 
@@ -313,7 +388,6 @@ footer i[class*="fa-"] {
 }
 
 /* ajout match page */
-
 
 .input-club input, .input-ville input {
     background-color: inherit;
@@ -362,7 +436,6 @@ input:required {
 }
 
 /* ajout club page */
-
 
 .addclub input {
     background-color: inherit;
