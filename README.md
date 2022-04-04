@@ -39,9 +39,6 @@ COMPLETED
 - [x] Ajouter la liste des matchs sur la page "Ajouter un match"
 - [x] Terminer la page détail du club (clic sur le club depuis le classement)
 
-## DEMO
-https://foreach.alwaysdata.net/projet-ligue-1/
-
 ## LOGIN (screenshot)
 
 ![Login](/assets/screen/01.login.jpg)
