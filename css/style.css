@@ -364,27 +364,32 @@ footer i[class*="fa-"] {
     border: 1px solid #000000;
 }
 
-/* details page */
+/* details club */
 
 .highlight-results-text {
     font-size: medium;
 }
 
 .carousel-inner {
-    border: 1px solid #3AAF9F;
+    border-radius: 1%;
 }
 
+.carousel-item img {
+    height: 340px;
+}
 
 .details-point {
+    color: #3AAF9F;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: xxx-large;
 }
 
 .details-point-text {
-    color: #3AAF9F;
+    font-size: large;
     font-weight: bold;
     margin-top: -20px;
     padding-left: 25%;
+    opacity: 50%;
 }
 
 /* ajout match page */
@@ -433,6 +438,11 @@ input:required {
 .addmatch-btn {
     background-color: unset;
     border: unset;
+    padding-left: 10px;
+}
+
+.accordion-body .row {
+    margin-left: unset;
 }
 
 /* ajout club page */

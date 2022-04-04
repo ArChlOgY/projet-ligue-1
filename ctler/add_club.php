@@ -16,7 +16,7 @@ $clubs = getClub($pdo);
                             <span class="details-club-header">AJOUTER UN CLUB</span>
                         </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionRank">
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionRank">
                             <div class="accordion-body addclub">
                                 <form action="index.php?action=addclub&show=addclub" method="post" enctype="multipart/form-data">
                                     <div class="row ps-4">
@@ -44,13 +44,10 @@ $clubs = getClub($pdo);
             </div>
             <?php if(!empty($clubs)) { ?>
             <div class="container">
-                <div class="row club-list text-center mb-3">
-                    <div class="col-12">LISTE DES CLUBS</div>
-                </div>
                 <div class="row text-center">
                 <?php foreach($clubs as $club) {
                     ?>
-                    <div class="col-sm-6 col-md-3 mb-5">
+                    <div class="col-sm-6 col-md-3 mt-4 mb-4">
                         <img src="assets/logo/<?php echo $club["id_club"].'.'.$club["logo"]?>" height="75px">
                         <div class="logo-text"><?php echo $club["nom_club"]?></div>
                     </div>

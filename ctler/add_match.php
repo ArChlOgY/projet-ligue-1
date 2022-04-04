@@ -9,6 +9,7 @@ if(!isset($_GET["show"])) {
 }
 
 $clubs = getClub($pdo);
+$matchs = getMatch($pdo);
 
 ?>
 <section>
@@ -22,7 +23,7 @@ $clubs = getClub($pdo);
                             <span class="details-club-header">AJOUTER UN MATCH</span>
                         </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionRank">
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionRank">
                             <div class="accordion-body addmatch">
                                 <form method="post" action="index.php?action=addmatch&show=addmatch">
                                     <div class="container text-center">
@@ -41,11 +42,8 @@ $clubs = getClub($pdo);
                                                     <input required type="number" id="club-home-goal" name="club-home-goal">
                                                 </div>
                                             </div>
-                                            <div class="col-sd-12 col-md-2 mt-5">
-                                                <span>
-
+                                            <div class="col-sd-12 col-md-2 align-self-end">
                                                 <button type="submit" class="addmatch-btn"><img src="./assets/img/soccer.png" alt="" height="75px" class="spinner-ball"></button>
-                                                </span>
                                             </div>
                                             <div class="col-sd-12 col-md-5">
                                                 <div class="text-ville mb-3">
@@ -61,6 +59,7 @@ $clubs = getClub($pdo);
                                                     <input required type="number" id="club-out-goal" name="club-out-goal">
                                                 </div>
                                             </div>
+                                            <hr>
                                         </div>
                                     </div>
                                 </form>
@@ -69,6 +68,20 @@ $clubs = getClub($pdo);
                     </div>
                 </div>
             </div>
+            <?php foreach($matchs as $match) { ?>
+                <div class="row text-center mt-4 mb-4">
+                    <?php $detailsMatchHome = detailsMatch($pdo, $match["idclub_home"], $match["id_match"]);?>
+                        <div class="col-4"><img src="assets/logo/<?php echo $detailsMatchHome["id_club"].'.'.$detailsMatchHome["logo"]?>" height="60px">
+                        </div>
+                        <div class="col-1 align-self-center"><?php echo $detailsMatchHome["bp"]?></div>
+                        <div class="col-2 align-self-center">-</div>
+                    <?php $detailsMatchOut = detailsMatch($pdo, $match["idclub_out"], $match["id_match"]); ?>
+                        <div class="col-1 align-self-center"><?php echo $detailsMatchOut["bp"]?></div>
+                        <div class="col-4"><img src="assets/logo/<?php echo $detailsMatchOut["id_club"].'.'.$detailsMatchOut["logo"]?>" height="60px">
+                        </div>
+                </div>
+            <?php } ?>
+            
         </div>
     </article>
 </section>

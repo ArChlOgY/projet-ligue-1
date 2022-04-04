@@ -7,8 +7,6 @@ Base de donnée : Oui
 
 TO-DO
 
-- [ ] Ajouter la liste des matchs sur la page "Ajouter un match"
-- [ ] Terminé la page détail du club (clic sur le club depuis le classement)
 - [ ] Vérifier les contraintes de clé étrangère
 - [ ] Vérifier que le site soit complétement responsive
 - [ ] Ajuster les couleurs
@@ -38,6 +36,8 @@ COMPLETED
 - [x] Stocker les données dans une base de donnée
 - [x] Afficher le classement sur la page d'acceuil avec les résultats enregistrés par l'utilisateur
 - [x] Affichier une erreur si aucun logo n'est chargé
+- [x] Ajouter la liste des matchs sur la page "Ajouter un match"
+- [x] Terminer la page détail du club (clic sur le club depuis le classement)
 
 ## DEMO
 https://foreach.alwaysdata.net/projet-ligue-1/
@@ -73,3 +73,7 @@ https://foreach.alwaysdata.net/projet-ligue-1/
 ## AJOUT CLUB (screenshot)
 
 ![Ajout Club](/assets/screen/08.ajouterclub.jpg)
+
+## RESULTATS CLUB (screenshot)
+
+![Ajout Club](/assets/screen/09.resultatsclub.jpg)

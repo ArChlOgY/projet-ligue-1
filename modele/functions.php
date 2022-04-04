@@ -2,7 +2,7 @@
 
 function getClub($pdo) {
 
-    #Create SQL request to db to get overall ranking
+    # Create SQL request to get all clubs
     $requete = "SELECT * FROM club ORDER BY id_club ASC;";
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
@@ -11,14 +11,14 @@ function getClub($pdo) {
     return $clubs;
 }
 
-function getClubResults($pdo) {
+function getClassement($pdo) {
 
-    #Create SQL request to db to get overall ranking
+    # Create SQL request to get overall ranking
     $requete = "SELECT c.id_club, nom_club, logo, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg , SUM(IFNULL(mn, 0)) mn, SUM(IFNULL(mp, 0)) mp, SUM(IFNULL(bp, 0)) bp, SUM(IFNULL(bc, 0)) bc, SUM(IFNULL(dp, 0)) db, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts 
-    FROM `club` c LEFT JOIN stats s ON c.id_club = s.id_club GROUP BY c.id_club 
-    ORDER BY total_pts DESC, mj DESC, db DESC;
-    " ;
-
+    FROM `club` c 
+    LEFT JOIN stats s ON c.id_club = s.id_club 
+    GROUP BY c.id_club 
+    ORDER BY total_pts DESC, mj DESC, db DESC;";
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
     $clubres = $stmt->fetchAll();
@@ -26,14 +26,33 @@ function getClubResults($pdo) {
     return $clubres;
 }
 
-function detailsClub($pdo, $idclub) {
+function clubHighlight($pdo, $idclub) {
 
-    $requete = "SELECT * FROM `club` c JOIN results r ON c.id_club = r.id_club WHERE C.id_club = :idclub";
+    # Create SQL request to get specific club highlight results
+    $requete = "SELECT c.id_club, nom_club, logo, ville_club, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts, SUM(IFNULL(bp, 0)) bp 
+    FROM club C 
+    LEFT JOIN stats S ON C.id_club = S.id_club 
+    WHERE C.id_club = :idclub";
     $stmt = $pdo->prepare($requete);
     $stmt->execute([':idclub' => $idclub]);
-    $clubDetails = $stmt->fetch();  
+    $clubHighlight = $stmt->fetch();
     
-    return $clubDetails;  
+    return $clubHighlight;  
+}
+
+function clubPictures($clubville) {
+
+    $clubville = strtolower($clubville);
+    $images = preg_grep('/\b(\w*'.preg_quote($clubville).'\w*)\b/', scandir("./assets/match/"));
+    if(!$images){
+        #$images = ['01.monaco_psg.jpg', '01.monaco_psg.jpg', '01.monaco_psg.jpg'];
+        $clubville = 'defaut';
+        $images = preg_grep('/\b(\w*'.preg_quote($clubville).'\w*)\b/', scandir("./assets/match/"));
+    }
+
+    shuffle($images);
+
+    return $images;
 }
 
 function actionAddclub($pdo, $clubname, $clubcity, $file) {
@@ -50,10 +69,10 @@ function actionAddclub($pdo, $clubname, $clubcity, $file) {
 
     // Check file exist -> note that file can be empty if the size is over MAXPOST php.ini 
     if (empty($file["size"])) {
-        throw new Exception('Vous devez ajouter un logo (jpg/png/jpeg - 1Mo Max)');
+        throw new Exception('Vous devez ajouter un logo (jpg/png/jpeg - 1Mo max)');
     // Then the image size        
     } elseif ($file["size"] > 1000000) { 
-        throw new Exception('Fichier trop volumineux - 1Mo Max');
+        throw new Exception('Fichier trop volumineux - 1Mo max');
     }
 
     // Check file type (only jpg/png.jpeg)
@@ -241,6 +260,29 @@ function actionLogin($pdo, $email, $pass) {
         header("Location:./index.php");
     } 
 }
+
+function getMatch($pdo) {
+
+    #Create SQL request to db to get all matchas
+    $requete = "SELECT * FROM matchs ORDER BY id_match ASC;";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute();
+    $matchs = $stmt->fetchAll();
+
+    return $matchs;
+}
+
+function detailsMatch($pdo, $idclub, $idmatch) {
+
+    $requete = "SELECT * FROM club C JOIN stats S ON C.id_club = S.id_club WHERE S.id_club = :id_club AND S.id_match = :id_match;";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute([':id_club' => $idclub, ':id_match' => $idmatch]);
+    $detailsMatch = $stmt->fetch();
+    
+    return $detailsMatch;  
+}
+
+
 
 function actionLogout() {
     

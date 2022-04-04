@@ -2,7 +2,7 @@
 
 # AJOUTER UN CHECK POUR EVITER LE CALL DE LA PAGE EN DIRECT
 
-$clubres = getClubResults($pdo);
+$clubres = getClassement($pdo);
    
 ?>
 <section>
