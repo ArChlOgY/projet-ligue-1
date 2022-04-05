@@ -24,8 +24,29 @@ if(isset($_GET["action"])) {
                 }
             }
             break;
+        case 'modifclub':
+            if(!empty($_POST['form-clubid']) && !empty($_POST['form-clubname']) && !empty($_POST['form-city']) && !empty($_FILES['file'])){   
+                try {
+                    $modifyClub = actionModifyClub($pdo, $_POST['form-clubname'], $_POST['form-city'], $_FILES['file'], $_POST['form-clubid']);
+                } catch(Exception $e) {
+                    $modifyClub = false;
+                    $error = $e->getMessage();
+                }
+            }
+            break;
+        case 'delclub':
+            if(!empty($_GET["clubid"])){   
+                try {
+                    $deleteClub = actionDelclub($pdo, $_GET["clubid"]);
+                    var_dump($deleteClub);
+                    die();
+                } catch(Exception $e) {
+                    $deleteClub = false;
+                    $error = "Le club n'a pas pu être supprimé !";
+                }
+            }
+            break;
         case 'addmatch':
-            #var_dump($_POST);
             if(!empty($_POST['club-playhome']) && !empty($_POST['club-playoutside'])){    
                 try {
                     $addmatch = addmatch($pdo, $_POST['club-playhome'], $_POST['club-home-goal'], $_POST['club-playoutside'], $_POST['club-out-goal']);
@@ -120,9 +141,9 @@ if(isset($_GET["action"])) {
             </div>
                 <?php
 
-                #$addClub = false;
+                #$modifyClub = true;
                 
-                if(isset($addClub) || isset($addmatch) ) { ?>
+                if(isset($addClub) || isset($modifyClub) || isset($addmatch) || isset($deleteClub)) { ?>
             <div class="container error-message pt-3">
                 <div class="row">
                     <div class="col-12">
@@ -137,10 +158,10 @@ if(isset($_GET["action"])) {
                             <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                         </symbol>
                         </svg>
-                        <?php if(isset($addClub) && $addClub === true || isset($addmatch) && $addmatch === true) { ?>
+                        <?php if(isset($addClub) && $addClub === true || isset($modifyClub) && $modifyClub === true || isset($deleteClub) && $deleteClub === true || isset($addmatch) && $addmatch === true) { ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                            <span class=text-success> Ajouté avec succès !</span>
+                            <span class=text-success> Opération réalisée avec succès !</span>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         <?php } else { ?>
@@ -165,10 +186,13 @@ if(isset($_GET["action"])) {
                 case 'addclub':
                     require('./ctler/add_club.php');
                     break;
+                case 'modifclub':
+                    require('./ctler/modify_club.php');
+                    break;
                 case 'addmatch':
                     require('./ctler/add_match.php');
                     break;
-                }
+                    }
             } else {
                 require('./ctler/main.php');
             }

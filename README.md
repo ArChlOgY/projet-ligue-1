@@ -7,6 +7,8 @@ Base de donnée : Oui
 
 TO-DO
 
+- [ ] Ajouter la possibilité de modifier un club
+- [ ] Ajouter la possibilité de supprimer un club
 - [ ] Vérifier les contraintes de clé étrangère
 - [ ] Vérifier que le site soit complétement responsive
 - [ ] Ajuster les couleurs

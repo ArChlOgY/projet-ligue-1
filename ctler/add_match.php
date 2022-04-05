@@ -33,7 +33,7 @@ $matchs = getMatch($pdo);
                                                     DOMICILE
                                                 </div>
                                                 <select required name="club-playhome" id="club-playhome">
-                                                    <option value="">-- Choisir un club --</option>
+                                                    <option value="">Choisir un club</option>
                                                 <?php foreach($clubs as $club) { ?>
                                                     <option name="<?php echo $club["id_club"]?>" value="<?php echo $club["id_club"]?>"><?php echo $club["nom_club"]?></option>
                                                 <?php } ?>
@@ -50,7 +50,7 @@ $matchs = getMatch($pdo);
                                                     EXTERIEUR
                                                 </div>
                                                 <select required name="club-playoutside" id="club-playoutside">
-                                                    <option value="">-- Choisir un club --</option>
+                                                    <option value="">Choisir un club</option>
                                                 <?php foreach($clubs as $club) { ?>
                                                     <option name="<?php echo $club["id_club"]?>" value="<?php echo $club["id_club"]?>"><?php echo $club["nom_club"]?></option>
                                                 <?php } ?>

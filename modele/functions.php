@@ -11,6 +11,61 @@ function getClub($pdo) {
     return $clubs;
 }
 
+function getClubInfo($pdo, $idclub) {
+
+    # Create SQL request to get club information
+    $requete = "SELECT * FROM club WHERE id_club = :idclub";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute([':idclub' => $idclub]);
+    $clubInfo = $stmt->fetch();
+    
+    return $clubInfo;  
+}
+
+function actionModifyClub($pdo, $clubname, $clubcity, $file, $clubid) {
+
+    // Clen the clubname & clubcity inputs as we want only letters
+    $clubcity = preg_replace('/[^\s\p{L}]/u', '', $clubcity);
+    $clubname = preg_replace('/[^\s\p{L}]/u', '', $clubname);
+    // After cleaning , check if there is still some letters in case user only typed number and special chars
+    if (empty($clubcity) or empty($clubname)) {
+        throw new Exception('Le nom du club/ville doit comporter uniquement des lettres');
+    }
+
+    // Check file exist -> note that file can be empty if the size is over MAXPOST php.ini 
+    if (empty($file["size"])) {
+
+        # sql update without image field
+
+    } else { 
+
+        # Check file size
+        if ($file["size"] > 1000000) { 
+            throw new Exception('Fichier trop volumineux - 1Mo max');
+        }
+
+        // Check file type (only jpg/png.jpeg)
+        $imageFileType = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            throw new Exception("Le fichier n'est pas une image (jpg/png/jpeg)");
+        }  
+
+        // Rename the logo file with the club id to avoid duplicate file
+        $newfilename = $clubid . '.' . strtolower($clubname. '.' .$imageFileType);
+
+        // Move the file to target dir
+        if (!move_uploaded_file($_FILES["file"]["tmp_name"], "./assets/logo/" . $newfilename)) {
+            throw new Exception("Le fichier chargé n'a pas pu être déplacé");
+        }
+
+        # sql update with image field  
+ 
+    }
+
+    # execute the SQL UPDATE
+
+}
+
 function getClassement($pdo) {
 
     # Create SQL request to get overall ranking
@@ -101,8 +156,13 @@ function actionAddclub($pdo, $clubname, $clubcity, $file) {
 function actionDelclub($pdo, $clubid) {
 
     $requete = "DELETE FROM club WHERE id_club = :clubid";
+
     $stmt = $pdo->prepare($requete);
     $delClub = $stmt->execute([':clubid' => $clubid]);
+
+    var_dump($delClub);
+    die();
+
 
     return $delClub;
 }
@@ -281,8 +341,6 @@ function detailsMatch($pdo, $idclub, $idmatch) {
     
     return $detailsMatch;  
 }
-
-
 
 function actionLogout() {
     
