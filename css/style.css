@@ -115,6 +115,32 @@ ul li:before {
     width: 450px;
 }
 
+.searchbox {
+    min-width: 200px;
+    max-width: 400px;
+    text-transform: uppercase;
+}
+
+.searchbox input, .searchbox span {
+    background-color: unset;
+    border: 1px solid #3AAF9F;
+    text-transform: uppercase;
+    color:#ffffff;
+
+}
+
+.searchbox input:focus {
+    background-color: unset;
+    color:#ffffff;
+    box-shadow: unset;
+    border: 1px solid #3AAF9F;
+
+}
+
+.searchbox span {
+    color: #3AAF9F;
+}
+
 .header-date {
     font-size: small;
     font-style: italic;

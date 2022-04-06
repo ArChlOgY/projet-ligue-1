@@ -1,10 +1,13 @@
 <?php
 
-# AJOUTER UN CHECK POUR EVITER LE CALL DE LA PAGE EN DIRECT
+# Prevent direct access to this file
+if(!isset($perms) AND $perms != 1) {
+    header("Location: http://".$_SERVER['HTTP_HOST']."/projet-ligue-1/");
+}
 
 if(!isset($_GET["club"]) || !isset($_GET["show"]) || !isset($_GET["rank"])) {
     # Case the club number is NOT forwarded for any reason
-    header('Location: ./index.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/projet-ligue-1/");
 }
 
 $clubHighlight = clubHighlight($pdo, $_GET["club"]);

@@ -3,7 +3,7 @@
 function getClub($pdo) {
 
     # Create SQL request to get all clubs
-    $requete = "SELECT * FROM club ORDER BY id_club ASC;";
+    $requete = "SELECT * FROM club ORDER BY nom_club ASC;";
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
     $clubs = $stmt->fetchAll();
@@ -35,8 +35,14 @@ function actionModifyClub($pdo, $clubname, $clubcity, $file, $clubid) {
     // Check file exist -> note that file can be empty if the size is over MAXPOST php.ini 
     if (empty($file["size"])) {
 
-        # sql update without image field
-
+        $requete = "UPDATE club SET nom_club = :clubname, ville_club = :clubcity WHERE id_club = :idclub";
+        $stmt = $pdo->prepare($requete);
+        $clubModify = $stmt->execute([
+            ':clubname' => $clubname,
+            ':clubcity' => $clubcity,
+            ':idclub' => $clubid
+        ]);
+ 
     } else { 
 
         # Check file size
@@ -58,22 +64,45 @@ function actionModifyClub($pdo, $clubname, $clubcity, $file, $clubid) {
             throw new Exception("Le fichier chargé n'a pas pu être déplacé");
         }
 
-        # sql update with image field  
- 
+        $requete = "UPDATE club SET nom_club = :clubname, logo = :logo, ville_club = :clubcity WHERE id_club = :idclub";
+        $stmt = $pdo->prepare($requete);
+        $clubModify = $stmt->execute([
+            ':clubname' => $clubname,
+            ':logo' => strtolower($clubname. '.' .$imageFileType),
+            ':clubcity' => $clubcity,
+            ':idclub' => $clubid
+        ]);
     }
 
-    # execute the SQL UPDATE
+    return $clubModify;
+}
+
+function actionDelclub($pdo, $clubid) {
+
+    $requete = "DELETE FROM club  WHERE id_club = :idclub";
+    $stmt = $pdo->prepare($requete);
+    $clubModify = $stmt->execute([':idclub' => $clubid]);
+
+    // Handle error message from SQL server (eg : foreign key constraint)
+    $error = $stmt->errorInfo();
+    if($error[0] != 0)
+        throw new Exception($error[2]);
+
+    return $clubModify;
 
 }
 
-function getClassement($pdo) {
+function getClassement($pdo, $search) {
 
     # Create SQL request to get overall ranking
     $requete = "SELECT c.id_club, nom_club, logo, SUM(IFNULL(mj, 0)) total_mj, SUM(IFNULL(mg, 0)) mg , SUM(IFNULL(mn, 0)) mn, SUM(IFNULL(mp, 0)) mp, SUM(IFNULL(bp, 0)) bp, SUM(IFNULL(bc, 0)) bc, SUM(IFNULL(dp, 0)) db, SUM(IFNULL(mg*3, 0)) + SUM(IFNULL(mn*1, 0)) total_pts 
-    FROM `club` c 
-    LEFT JOIN stats s ON c.id_club = s.id_club 
-    GROUP BY c.id_club 
-    ORDER BY total_pts DESC, mj DESC, db DESC;";
+    FROM `club` c LEFT JOIN stats s ON c.id_club = s.id_club WHERE 1=1";
+    if(!empty($search))
+    {
+        $requete .=  " AND nom_club LIKE '%".$search."%'";
+        $requete .=  " OR ville_club LIKE '%".$search."%'";
+    }
+    $requete .=  " GROUP BY c.id_club ORDER BY total_pts DESC, mj DESC, db DESC;";
     $stmt = $pdo->prepare($requete);
     $stmt->execute();
     $clubres = $stmt->fetchAll();
@@ -153,24 +182,10 @@ function actionAddclub($pdo, $clubname, $clubcity, $file) {
     return $addClub;
 }
 
-function actionDelclub($pdo, $clubid) {
-
-    $requete = "DELETE FROM club WHERE id_club = :clubid";
-
-    $stmt = $pdo->prepare($requete);
-    $delClub = $stmt->execute([':clubid' => $clubid]);
-
-    var_dump($delClub);
-    die();
-
-
-    return $delClub;
-}
-
 function addmatch($pdo, $clubid_home, $goal_home, $clubid_out, $goal_out) {
 
     # Check values are passed correctly
-    if(empty($clubid_home) || empty($goal_home) || empty($clubid_out) || empty($goal_out) ){
+    if(!isset($clubid_home) || !isset($goal_home) || !isset($clubid_out) || !isset($goal_out) ){
         throw new Exception("Les informations saisies sont incomplètes");
     }
 

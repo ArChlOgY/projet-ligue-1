@@ -1,7 +1,9 @@
 <?php 
 session_start();
 require './modele/db.php'; 
-require './modele/functions.php'; 
+require './modele/functions.php';
+
+$perms = 1;
 
 if(isset($_GET["action"])) {
 
@@ -38,11 +40,9 @@ if(isset($_GET["action"])) {
             if(!empty($_GET["clubid"])){   
                 try {
                     $deleteClub = actionDelclub($pdo, $_GET["clubid"]);
-                    var_dump($deleteClub);
-                    die();
                 } catch(Exception $e) {
                     $deleteClub = false;
-                    $error = "Le club n'a pas pu être supprimé !";
+                    $error = $e->getMessage();
                 }
             }
             break;
@@ -134,10 +134,22 @@ if(isset($_GET["action"])) {
         <section>
             <div class="container menu">
                 <div class="row justify-content-center mb-4 mt-4">
-                        <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addmatch">MATCH +</a></div>
-                        <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addclub">CLUB +</a></div>
-                        <div class="col-4 col-sm-1 menu-btn"><a href="./index.php?action=logout">A+</a></div>
+                    <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addmatch">MATCH +</a></div>
+                    <div class="col-4 col-sm-1 menu-btn me-2"><a href="./index.php?show=addclub">CLUB +</a></div>
+                    <div class="col-4 col-sm-1 menu-btn"><a href="./index.php?action=logout">A+</a></div>
                 </div>
+                <form method="post" action="#">
+                <div class="row justify-content-center mb-4 mt-4">
+                    <div class="input-group searchbox">
+                        <span class="input-group-text" id="search-club">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control" id="search-text" name="search-text" placeholder="Rechercher un club" aria-label="Rechercher un club" aria-describedby="search-club">
+                    </div>
+                </div>
+                </form>
             </div>
                 <?php
 

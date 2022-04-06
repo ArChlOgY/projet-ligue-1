@@ -1,10 +1,13 @@
 <?php
 
-#JOUTER UN CHECK POUR EVITER LE CALL DE LA PAGE EN DIRECT
+# Prevent direct access to this file
+if(!isset($perms) AND $perms != 1) {
+    header("Location: http://".$_SERVER['HTTP_HOST']."/projet-ligue-1/");
+}
+
 $clubs = getClub($pdo);
 
 ?>
-
 <section>
     <article>
         <div class="container mt-3 class-head">

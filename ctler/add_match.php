@@ -1,7 +1,9 @@
-<!-- -------------TO DO -------------------------------- -->
-<!-- Voir onfocus du ballon quand on utilise la touche tab -->
-
 <?php
+
+# Prevent direct access to this file
+if(!isset($perms) AND $perms != 1) {
+    header("Location: http://".$_SERVER['HTTP_HOST']."/projet-ligue-1/");
+}
 
 if(!isset($_GET["show"])) {
     # Case the club number is NOT forwarded for any reason
@@ -68,8 +70,10 @@ $matchs = getMatch($pdo);
                     </div>
                 </div>
             </div>
-            <?php foreach($matchs as $match) { ?>
-                <div class="row text-center mt-4 mb-4">
+            <?php
+            if(!empty($matchs)) { ?>
+                <?php foreach($matchs as $match) { ?>
+                <div class="row text-center pt-3 pb-3">
                     <?php $detailsMatchHome = detailsMatch($pdo, $match["idclub_home"], $match["id_match"]);?>
                         <div class="col-4"><img src="assets/logo/<?php echo $detailsMatchHome["id_club"].'.'.$detailsMatchHome["logo"]?>" height="60px">
                         </div>
@@ -80,8 +84,8 @@ $matchs = getMatch($pdo);
                         <div class="col-4"><img src="assets/logo/<?php echo $detailsMatchOut["id_club"].'.'.$detailsMatchOut["logo"]?>" height="60px">
                         </div>
                 </div>
+                <?php } ?>
             <?php } ?>
-            
         </div>
     </article>
 </section>

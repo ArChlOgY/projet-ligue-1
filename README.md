@@ -7,8 +7,6 @@ Base de donnée : Oui
 
 TO-DO
 
-- [ ] Ajouter la possibilité de modifier un club
-- [ ] Ajouter la possibilité de supprimer un club
 - [ ] Vérifier les contraintes de clé étrangère
 - [ ] Vérifier que le site soit complétement responsive
 - [ ] Ajuster les couleurs
@@ -40,6 +38,9 @@ COMPLETED
 - [x] Affichier une erreur si aucun logo n'est chargé
 - [x] Ajouter la liste des matchs sur la page "Ajouter un match"
 - [x] Terminer la page détail du club (clic sur le club depuis le classement)
+- [x] Ajouter la possibilité de modifier un club
+- [x] Ajouter la possibilité de supprimer un club
+- [x] Création d'un module de recherche d'un club et affiche les résultats
 
 ## LOGIN (screenshot)
 

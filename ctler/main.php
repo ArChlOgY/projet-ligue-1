@@ -1,9 +1,18 @@
 <?php
 
-# AJOUTER UN CHECK POUR EVITER LE CALL DE LA PAGE EN DIRECT
+# Block user for direct access to this file
+if(!isset($perms) AND $perms != 1) {
+    header("Location: http://".$_SERVER['HTTP_HOST']."/projet-ligue-1/");
+}
 
-$clubres = getClassement($pdo);
-   
+if(isset($_POST["search-text"])) {
+    $search = $_POST["search-text"];
+} else {
+    $search = '';
+}
+
+$clubres = getClassement($pdo, $search);
+
 ?>
 <section>
     <article>
@@ -79,11 +88,11 @@ $clubres = getClassement($pdo);
             <?php
                 $rank = 0;
                 foreach($clubres as $team) {
-                    $rank ++;            ?>
+                    $rank ++; ?>
             <hr>
             <a href="./index.php?club=<?php echo $team["id_club"]?>&rank=<?php echo $rank?>&show=details">
                 <div class="row classement ">
-                    <div class="col-1 rank-position rank-highlight-<?php echo $rank ?>"><?php echo $rank ?></div>
+                    <div class="col-1 rank-position <?php if(empty($search)){ echo "rank-highlight-".$rank; }?>"><?php echo $rank ?></div>
                     <div class="col-1 rank-logo text-center"><img src="assets/logo/<?php echo $team["id_club"].'.'.$team["logo"]?>" class="club-logo"></div>
                     <div class="col-2 rank-club"><?php echo $team["nom_club"] ?></div>
                     <div class="col-1 rank-matchPlay"><?php echo $team["total_mj"] ?></div>
