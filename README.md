@@ -41,6 +41,7 @@ COMPLETED
 - [x] Ajouter la possibilité de modifier un club
 - [x] Ajouter la possibilité de supprimer un club
 - [x] Création d'un module de recherche d'un club et affiche les résultats
+- [x] Ajout de la pagination pour la liste des matchs (par journée)
 
 ## LOGIN (screenshot)
 
