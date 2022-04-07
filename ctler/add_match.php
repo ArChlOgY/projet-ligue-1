@@ -10,8 +10,22 @@ if(!isset($_GET["show"])) {
     header('Location: ./index.php');
 }
 
+// Get the current journee
+if(isset($_GET['journee']) && !empty($_GET['journee'])){
+    $currentPage = strip_tags($_GET['journee']);
+}else{
+    $currentPage = 1;
+}
+
+$totalMatch = countMatch($pdo);
+$nbMatchPage = 10;
+
+// Calculate quantity of pages
+$nbpage = ceil($totalMatch['totalmatch'] / $nbMatchPage);
+$first = ($currentPage * $nbMatchPage) - $nbMatchPage;
+
 $clubs = getClub($pdo);
-$matchs = getMatch($pdo);
+$matchs = getMatch($pdo, $first, $nbMatchPage);
 
 ?>
 <section>
@@ -86,6 +100,19 @@ $matchs = getMatch($pdo);
                 </div>
                 <?php } ?>
             <?php } ?>
+            <div class="row pagination text-center mt-3">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item <?php echo ($currentPage == 1) ? "disabled" : "" ?> pe-5">
+                            <a href="./?show=addmatch&journee=<?php echo $currentPage - 1 ?>" class="page-link"><i class="fa-solid fa-circle-chevron-left"></i></i></a>
+                        </li>
+                        <div class="pagination-text align-self-center">J-<?php echo $currentPage; ?></div>
+                        <li class="page-item <?php echo ($currentPage == $nbpage) ? "disabled" : "" ?> ps-5">
+                            <a href="./?show=addmatch&journee=<?php echo $currentPage + 1 ?>" class="page-link"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </article>
 </section>

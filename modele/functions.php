@@ -308,6 +308,38 @@ function addmatch($pdo, $clubid_home, $goal_home, $clubid_out, $goal_out) {
     return $addmatch;
 }
 
+function getMatch($pdo, $premier, $nbMatchPage) {
+
+    #Create SQL request to db to get all matchs
+    $requete = "SELECT * FROM matchs ORDER BY id_match ASC LIMIT $premier, $nbMatchPage;";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute();
+    $matchs = $stmt->fetchAll();
+
+    return $matchs;
+}
+
+function countMatch($pdo) {
+
+    #Create SQL request to db to get all matchs
+    $requete = "SELECT COUNT(*) totalmatch FROM matchs;";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute();
+    $totalmatchs = $stmt->fetch();
+
+    return $totalmatchs;
+}
+
+function detailsMatch($pdo, $idclub, $idmatch) {
+
+    $requete = "SELECT * FROM club C JOIN stats S ON C.id_club = S.id_club WHERE S.id_club = :id_club AND S.id_match = :id_match;";
+    $stmt = $pdo->prepare($requete);
+    $stmt->execute([':id_club' => $idclub, ':id_match' => $idmatch]);
+    $detailsMatch = $stmt->fetch();
+    
+    return $detailsMatch;  
+}
+
 function actionLogin($pdo, $email, $pass) {
     
     if (!empty($email) && !empty($pass)) {
@@ -334,27 +366,6 @@ function actionLogin($pdo, $email, $pass) {
     }else{
         header("Location:./index.php");
     } 
-}
-
-function getMatch($pdo) {
-
-    #Create SQL request to db to get all matchas
-    $requete = "SELECT * FROM matchs ORDER BY id_match ASC;";
-    $stmt = $pdo->prepare($requete);
-    $stmt->execute();
-    $matchs = $stmt->fetchAll();
-
-    return $matchs;
-}
-
-function detailsMatch($pdo, $idclub, $idmatch) {
-
-    $requete = "SELECT * FROM club C JOIN stats S ON C.id_club = S.id_club WHERE S.id_club = :id_club AND S.id_match = :id_match;";
-    $stmt = $pdo->prepare($requete);
-    $stmt->execute([':id_club' => $idclub, ':id_match' => $idmatch]);
-    $detailsMatch = $stmt->fetch();
-    
-    return $detailsMatch;  
 }
 
 function actionLogout() {
